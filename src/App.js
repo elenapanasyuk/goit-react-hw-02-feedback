@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Section from "./components/Section";
-import FeedbackOptions from "./components/FeedbackOptions";
-import Statistics from "./components/Statistics";
-import Notification from "./components/Notification";
+import Section from './components/Section';
+import FeedbackOptions from './components/FeedbackOptions';
+import Statistics from './components/Statistics';
+import Notification from './components/Notification';
 
-import { FEEDBACK_OPTIONS } from "./data/constants";
+import { FEEDBACK_OPTIONS } from './data/constants';
 
 class App extends Component {
   state = {
@@ -13,8 +13,8 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  sendFeedback = (option) => {
-    this.setState((prevState) => ({ [option]: prevState[option] + 1 }));
+  sendFeedback = option => {
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
   };
 
   countTotalFeedback = () => {
@@ -36,7 +36,6 @@ class App extends Component {
     const positivePercentage = this.countPositiveFeedbackPercentage();
     return (
       <>
-        <h1>Feedback Form</h1>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={FEEDBACK_OPTIONS}
