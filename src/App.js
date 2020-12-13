@@ -5,8 +5,6 @@ import FeedbackOptions from './components/FeedbackOptions';
 import Statistics from './components/Statistics';
 import Notification from './components/Notification';
 
-import { FEEDBACK_OPTIONS } from './data/constants';
-
 class App extends Component {
   state = {
     good: 0,
@@ -18,10 +16,10 @@ class App extends Component {
   };
 
   countTotalFeedback = () => {
-    return Object.values(this.state).reduce((acc, option) => acc + option, 0);
+    //return Object.values(this.state).reduce((acc, option) => acc + option, 0);
 
-    //const { good, bad, neutral } = this.state;
-    //return good +bad + neutral;
+    const { good, bad, neutral } = this.state;
+    return good + bad + neutral;
   };
   countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
@@ -38,7 +36,7 @@ class App extends Component {
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={FEEDBACK_OPTIONS}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.sendFeedback}
           />
         </Section>
